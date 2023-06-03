@@ -1,0 +1,63 @@
+{% extends "customer_base.html" %}
+{% block title %} Purchase Ticket {% endblock %}
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+<br />
+<h1> Flight Information:</h1>
+<br />
+<table>
+  <tr>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Price ($)</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+  </tr>
+  <tr>
+      <td> {{airline_name}}</td>
+      <td> {{flightNum}}</td>
+      <td> {{price}}</td>
+      <td>{{date}}</td>
+      <td>{{time}}</td>
+  </tr>
+</table>
+<br />
+<h1> Enter Payment Information:</h1>
+<br />
+<div> 
+  <form action="" method="post">
+      <label for="name"> Card Type:
+      <br />
+      <input type="radio" name="cardType" value="Credit"> Credit
+      <br />
+      <input type="radio" name="cardType" value="Debit"> Debit
+      <br/>
+      <label for="name"> Card Number: </label>
+      <input type="text" name="cardNumber" required/>
+      <br/>
+      <label for="name"> Card Name: </label>
+      <input type="text" name="cardName" required/>
+      <br/>
+      <label> Card Expiration Date: </label>
+      <input type="date" name="expDate" required>
+      <br/>
+      <input type="submit" value="Purchase">
+  </form>
+</div>
+{% if error %}
+{{error}}
+{% endif %}
+
+{% endblock %}

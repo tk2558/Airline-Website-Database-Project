@@ -1,0 +1,21 @@
+{% extends "staff_base.html" %}
+{% block title %} Staff {% endblock %}
+{% block content %}
+<body>
+	<h1>Welcome, Staff Member {{name}}!</h1>
+	<br />
+	<img src="/static/profile.png" style="float:left" />
+	<h4> &ensp; Username: {{username}}</h4>
+	<br />
+	<h4> &ensp; Name: {{name}}</h4>
+	<br />
+	<h4> &ensp; Email: {{email}}</h4>
+	<br />
+	<h4> &ensp; Date of Birth: {{DoB}}</h4>
+	<br />
+	<h4> &ensp; Phone Number: {{phoneNum}}</h4>
+	<br />
+	<h4> &ensp; Airline: {{airline}}</h4>
+	<br />
+</body>
+{% endblock %}

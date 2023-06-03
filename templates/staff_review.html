@@ -1,0 +1,39 @@
+{% extends "staff_base.html" %}
+{% block title %} View Review {% endblock %}
+{% block content %}
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+
+	{% if avg %}
+	<h1>The Average Rating of Flight is: {{avg}}</h1>
+    {% endif %}
+	<table>
+  <tr>
+    <th>Customer</th>
+      <th>Comment</th>
+    <th>Rating</th></tr>
+  {% if data %}
+  {% for info in data %}
+    <tr>
+      <td> {{info.customer_email}} </td>
+        <td>    {{info.comment}} </td>
+        <td>    {{info.rating}} </td>
+        </tr>
+  {% endfor %}
+  {% endif %}
+
+</table>
+
+{% endblock %}

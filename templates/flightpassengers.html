@@ -1,0 +1,42 @@
+{% extends "staff_base.html" %}
+{% block title %} View Passengers {% endblock %}
+{% block content %}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 2px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+<br />
+<h1> Passengers:</h1>
+<br />
+<table>
+    <tr>
+        <th>Ticket ID</th>
+        <th>Customer Email</th>
+        <th>Purchase Date</th>
+        <th>Customer Name</th>
+    </tr>
+    {% if data %}
+    {% for info in data %}
+    <tr>
+        <td> {{info.ticket_ID}} </td>
+        <td>    {{info.customer_email}} </td>
+        <td>    {{info.purchase_date}} </td>
+        <td>    {{info.card_name}}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+{% if error %}
+{{error}}
+{% endif %}
+
+{% endblock %}

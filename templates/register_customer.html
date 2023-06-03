@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %} Customer Registration {% endblock %}
+{% block content %}
+
+<body>
+    <h1>Customer Registration</h1>
+    <div>
+        <form action="" method="post">
+            <label for="name"> Name: </label>
+            <input type="text" name="name" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Email: </label>
+            <input type="text" name="email" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Password: </label>
+            <input type="password" name="password" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Building Number: </label>
+            <input type="text" name="buildingNum" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Street: </label>
+            <input type="text" name="street" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> City: </label>
+            <input type="text" name="city" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> State: </label>
+            <input type="text" name="state" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Phone Number: </label>
+            <input type="text" name="phoneNum" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Passport Number: </label>
+            <input type="text" name="passportNum" placeholder="" required />
+            <br />
+            <br />
+            <label for="name"> Passport Expiration Date: </label>
+            <input type="date" name="expDate" required />
+            <br />
+            <br />
+            <label for="name"> Passport Country: </label>
+            <input type="text" name="passportCountry" placeholder="" required />
+            <br />
+            <br />
+            <label> Date of Birth: </label>
+            <input type="date" name="DOB" required>
+            <br />
+            <br />
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    {% if error %}
+        {{ error }}
+    {% endif %}
+</body>
+{% endblock %}

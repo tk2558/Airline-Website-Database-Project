@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Registration {% endblock %}
+{% block content %}
+
+<body>
+    <h1>Registration</h1>
+    <h5>Registering as: </h5>
+    <div>
+        <form action="" method="post">
+            <input type="radio" name="userType" value="customer"> Customer
+            <br />
+            <input type="radio" name="userType" value="staff"> Airline Staff
+            <br />
+            <br />
+            <input type="submit" value="Continue">
+        </form>
+    </div>
+    {% if error %}
+    {{ error }}
+    {% endif %}
+</body>
+{% endblock %}

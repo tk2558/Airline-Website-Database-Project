@@ -1,0 +1,64 @@
+{% extends "staff_base.html" %}
+{% block title %} Staff Report {% endblock %}
+{% block content %}
+
+<br />
+<h3> Number of Tickets Sold from {{start_date}} to {{end_date}}: {{total_tickets}} </h3>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js'></script>
+</head>
+
+<body>
+    <h5> Change Date Range: </h5>
+    <form action="" method="post">
+        <label for="name"> Start Date: </label>
+        <input type="date" name="date1" required />
+        <br />
+        <label for="name"> End Date: </label>
+        <input type="date" name="date2" required />
+        <br />
+        <input type="submit" value="Update">
+    </form>
+    <center>
+        <h1>{{ title }}</h1>
+    </center>
+    <center>
+        <canvas id="barChart" height="600" width="800"></canvas>
+        <script>
+            var ctx = document.getElementById("barChart").getContext("2d");
+            var lineChart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: {{ labels | safe }},
+                    datasets: [
+                        {
+                            label: "Number of Tickets",
+                            data: {{ values | safe }},
+                            fill: true,
+                            backgroundColor: "rgb(75,192,195)",
+                            lineTension: 0.15
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                        scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+    </center>
+</body>
+</html>
+{% endblock %}

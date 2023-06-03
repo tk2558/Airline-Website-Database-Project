@@ -1,0 +1,61 @@
+{% extends "customer_base.html" %}
+{% block title %} Rate & Comment {% endblock %}
+{% block content %}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 2px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+<table>
+    <tr>
+        <th>Airline Name</th>
+        <th>Status</th>
+        <th>Flight Number</th>
+        <th>Departure Airport</th>
+        <th>Departure Date</th>
+        <th>Departure Time</th>
+        <th>Arrival Airport</th>
+        <th>Arrival Date</th>
+        <th>Arrival Time</th>
+        <th>Base Price ($)</th>
+        <th>Airplane ID</th>
+        <th>Comment on Flight</th>
+        <th>Rate the Flight</th>
+        <th>Submit Review</th>
+    </tr>
+    {% if data %}
+    {% for info in data %}
+    <form action="" method="POST">
+    <tr>
+        <td> {{info.airline_name}} </td>
+        <td>    {{info.status}} </td>
+        <td>    {{info.flight_number}} </td>
+        <td>    {{info.departure_airport}}</td>
+        <td>    {{info.departure_date}}</td>
+        <td>    {{info.departure_time}}</td>
+        <td>    {{info.arrival_airport}}</td>
+        <td>    {{info.arrival_date}}</td>
+        <td>    {{info.arrival_time}}</td>
+        <td>    {{info.base_price}}</td>
+        <td>    {{info.airplane_ID}} </td>
+        <td> <input type="text" name="comment" required /></td>
+        <td> <input type="number" name="rating" min="1" max="5" required></td>
+        <td> <input type="submit" name="{{info.flight_number}}" value="Submit" /></td>
+    </tr>
+    </form>
+    {% endfor %}
+    {% endif %}
+</table>
+{% if error %}
+{{error}}
+{% endif %}
+{% endblock %}

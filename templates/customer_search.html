@@ -1,0 +1,78 @@
+{% extends "customer_base.html" %}
+{% block title %} Search My Flights {% endblock %}
+{% block content %}
+
+<body>
+    <br />
+    <h2>Search by Airport:</h2>
+    <div>
+        <form action="" method="post">
+            <label for="name"> Departure Airport: </label>
+            <input type="text" name="depAirport" required />
+            <br />
+            <br />
+            <label for="name"> Arrival Airport: </label>
+            <input type="text" name="arrAirport" required />
+            <br />
+            <br />
+            <label for="name"> Departure Date: </label>
+            <input type="date" name="depDate" required />
+            <br />
+            <br />
+            <label for="name"> Return Date (Round Trip):</label>
+            <input type="date" name="retDate" />
+            <br />
+            <br />
+            <input type="submit" name="Search Airport" value="Search Airport">
+        </form>
+    </div>
+    <br />
+    <h2>Search by City:</h2>
+    <div>
+        <form action="" method="post">
+            <label for="name"> Departure City: </label>
+            <input type="text" name="depCity" required />
+            <br />
+            <br />
+            <label for="name"> Arrival City: </label>
+            <input type="text" name="arrCity" required />
+            <br />
+            <br />
+            <label for="name"> Departure Date: </label>
+            <input type="date" name="depDate" required />
+            <br />
+            <br />
+            <label for="name"> Return Date (Round Trip):</label>
+            <input type="date" name="retDate" />
+            <br />
+            <br />
+            <input type="submit" name="Search City" value="Search City">
+        </form>
+    </div>
+    <br />
+    <h2>Search for Flight Status:</h2>
+    <div>
+        <form action="" method="post">
+            <label for="name"> Airline Name: </label>
+            <input type="text" name="airlineName" required />
+            <br />
+            <br />
+            <label for="name"> Flight Number: </label>
+            <input type="text" name="flightNumber" required />
+            <br />
+            <br />
+            <label for="name"> Departure Date:</label>
+            <input type="date" name="retDate" />
+            <br />
+            <br />
+            <label for="name"> Arrival Date: </label>
+            <input type="date" name="depDate" required />
+            <br />
+            <br />
+            <input type="submit" name="Search Status" value="Search Status">
+            <br />
+            <br />
+        </form>
+    </div>
+</body>
+{% endblock %}

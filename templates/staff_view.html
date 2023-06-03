@@ -1,0 +1,82 @@
+{% extends "staff_base.html" %}
+{% block title %} Staff View {% endblock %}
+{% block content %}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 2px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+
+<br />
+<h3> Viewing Flights From {{old}} to {{today}} </h3>
+
+<body>
+    <h5> Fliter: </h5>
+    <form action="" method="post">
+        <label for="name"> &ensp; Start Date: </label>
+        <input type="date" name="date1" required />
+        <br />
+        <br />
+        <label for="name"> &ensp; End Date: </label>
+        <input type="date" name="date2" required />
+        <br />
+        <br />
+        <label for="name"> &ensp; Depature Airport: </label>
+        <input type="text" name="airport1" required />
+        <br />
+        <br />
+        <label for="name"> &ensp; Arrival Airport: </label>
+        <input type="text" name="airport2" required />
+        <br />
+        <br />
+        <input type="submit" name="update" value="Update Filter">
+    </form>
+</body>
+<br />
+<table>
+    <tr>
+        <th>Airline Name</th>
+        <th>Status</th>
+        <th>Flight Number</th>
+        <th>Departure Airport</th>
+        <th>Departure Date</th>
+        <th>Departure Time</th>
+        <th>Arrival Airport</th>
+        <th>Arrival Date</th>
+        <th>Arrival Time</th>
+        <th>Base Price ($)</th>
+        <th>Airplane ID</th>
+        <th>Passengers</th>
+    </tr>
+    {% if data %}
+    {% for info in data %}
+    <form action="" method="POST">
+    <tr>
+        <td> {{info.airline_name}} </td>
+        <td>    {{info.status}} </td>
+        <td>    {{info.flight_number}} </td>
+        <td>    {{info.departure_airport}}</td>
+        <td>    {{info.departure_date}}</td>
+        <td>    {{info.departure_time}}</td>
+        <td>    {{info.arrival_airport}}</td>
+        <td>    {{info.arrival_date}}</td>
+        <td>    {{info.arrival_time}}</td>
+        <td>    {{info.base_price}}</td>
+        <td>    {{info.airplane_ID}} </td>
+        <td> <input type="submit" name="{{info.flight_number}}|{{info.ticket_ID}}|{{info.customer_email}}|{{info.ourchase_date}}|{{info.card_name}}" value="View" /></td>
+    </tr>
+    </form>
+    {% endfor %}
+    {% endif %}
+</table>
+<br /><br />
+{% endblock %}

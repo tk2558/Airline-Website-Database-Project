@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %} View Flight Results {% endblock %}
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 2px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+<br />
+<h3> Departure Flights </h3>
+<br />
+<table>
+  <tr>
+    <th>Airline Name</th>
+    <th>Status</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Date</th>
+    <th>Arrival Time</th>
+    <th>Base Price ($)</th>
+    <th>Airplane ID</th>
+  </tr>
+  {% if data %}
+  {% for info in data %}
+    <tr>
+      <td> {{info.airline_name}} </td>
+        <td>    {{info.status}} </td>
+        <td>    {{info.flight_number}} </td>
+        <td>    {{info.departure_airport}}</td>
+        <td>    {{info.departure_date}}</td>
+        <td>    {{info.departure_time}}</td>
+        <td>    {{info.arrival_airport}}</td>
+        <td>    {{info.arrival_date}}</td>
+        <td>    {{info.arrival_time}}</td>
+        <td>    {{info.base_price}}</td>
+        <td>    {{info.airplane_ID}} </td>
+    </tr>
+  {% endfor %}
+  {% endif %}
+</table>
+<br />
+<h3> Arrival Flights</h3>
+<br />
+<table>
+  <tr>
+    <th>Airline Name</th>
+    <th>Status</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Date</th>
+    <th>Arrival Time</th>
+    <th>Base Price ($)</th>
+    <th>Airplane ID</th>
+  </tr>
+  {% if data1 %}
+  {% for info in data1 %}
+    <tr>
+      <td> {{info.airline_name}} </td>
+        <td>    {{info.status}} </td>
+        <td>    {{info.flight_number}} </td>
+        <td>    {{info.departure_airport}}</td>
+        <td>    {{info.departure_date}}</td>
+        <td>    {{info.departure_time}}</td>
+        <td>    {{info.arrival_airport}}</td>
+        <td>    {{info.arrival_date}}</td>
+        <td>    {{info.arrival_time}}</td>
+        <td>    {{info.base_price}}</td>
+        <td>    {{info.airplane_id}} </td>
+    </tr>
+  {% endfor %}
+  {% endif %}
+</table>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "staff_base.html" %}
+{% block title %} Add to Database {% endblock %}
+{% block content %}
+
+<style>
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+
+<body>
+    <br />
+    <h2> Add New Airplane</h2>
+    <div>
+        <form action="" method="post">
+            <label for="name"> Airplane ID: </label>
+            <input type="text" name="airplaneID" required />
+            <br />
+            <label for="name"> Number of Seats: </label>
+            <input type="text" name="seats" required />
+            <br />
+            <label for="name"> Airline Name: </label>
+            <input type="text" name="airline_name" required />
+            <br />
+            <label for="name"> Manufacture By: </label>
+            <input type="text" name="manufacturer" required />
+            <br />
+            <label for="name"> Airplane Age: </label>
+            <input type="number" name="age" min="0" style="width: 4em" required />
+            <br />
+            <br />
+            <input type="submit" name="airplane" value="Add Airplane">
+        </form>
+    </div>
+    <br />
+    <h2> Add New Airport</h2>
+    <div>
+        <form action="" method="post">
+            <label for="name"> Airport Name: </label>
+            <input type="text" name="airportName" required />
+            <br />
+            <label for="name"> Airport City: </label>
+            <input type="text" name="city" required />
+            <br />
+            <label for="name"> Airport Country: </label>
+            <input type="text" name="country" required />
+            <br />
+            <label for="name"> Type: </label>
+            <br />
+            &ensp;
+            <input type="radio" name="type" value="Domestic"> Domestic
+            <br />
+            &ensp;
+            <input type="radio" name="type" value="International"> International
+            <br />
+            &ensp;
+            <input type="radio" name="type" value="Both"> Both
+            <br />
+            <br />
+            <input type="submit" name="airport" value="Add Airport">
+        </form>
+    </div>
+</body>
+<br />
+<br />
+<h2> Airplanes owned by {{airline}}: </h2>
+<table>
+    <tr>
+        <th>Airplane ID</th>
+        <th>Number of Seats</th>
+        <th>Airline Name</th>
+        <th>Manufacturer</th>
+        <th>Age</th>
+    </tr>
+    {% if data %}
+    {% for info in data %}
+    <tr>
+        <td> {{info.airplane_ID}} </td>
+        <td>    {{info.num_seats}} </td>
+        <td>    {{info.airline_name}} </td>
+        <td>    {{info.manufacturer}}</td>
+        <td>    {{info.age}}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+<br />
+{% endblock %}

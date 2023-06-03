@@ -1,0 +1,92 @@
+{% extends "staff_base.html" %}
+{% block title %} View Rating {% endblock %}
+{% block content %}
+<style>
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+<table>
+  <tr>
+    <th>Airline Name</th>
+    <th>Status</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Date</th>
+    <th>Arrival Time</th>
+    <th>Base Price ($)</th>
+    <th>Airplane ID</th>
+    <th>Customer Ratings </th>
+  </tr>
+  {% set count = namespace(value=0) %}
+  {% if data %}
+  {% for info in data %}
+    <tr>
+      <td> {{info.airline_name}} </td>
+        <td>    {{info.status}} </td>
+        <td>    {{info.flight_number}} </td>
+        <td>    {{info.departure_airport}}</td>
+        <td>    {{info.departure_date}}</td>
+        <td>    {{info.departure_time}}</td>
+        <td>    {{info.arrival_airport}}</td>
+        <td>    {{info.arrival_date}}</td>
+        <td>    {{info.arrival_time}}</td>
+        <td>    {{info.base_price}}</td>
+        <td>    {{info.airplane_ID}} </td>
+        <td>
+            <form action="" method="POST">
+              <button type="submit" name="flight_number" value={{info.flight_number}}>Review</button>
+            </form>
+        </td>
+    </tr>
+    {% set count.value = count.value + 1%}
+  {% endfor %}
+  {% endif %}
+</table>
+
+{% endblock %}

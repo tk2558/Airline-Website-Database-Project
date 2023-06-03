@@ -1,0 +1,55 @@
+{% extends "staff_base.html" %}
+{% block title %} Create Flight {% endblock %}
+{% block content %}
+
+<body>
+    <br />
+    <h2> Add Flight to Database</h2>
+    <br />
+    <div>
+        <form action="" method="post">
+            <label for="name"> Flight Number: </label>
+            <input type="text" name="flightNumber" required />
+            <br />
+            <br />
+            <label for="name"> Status: </label>
+            <br />
+            &ensp;
+            <input type="radio" name="status" value="On time"> On Time
+            &ensp;
+            <input type="radio" name="status" value="Delayed"> Delayed
+            <br />
+            <br />
+            <label for="name"> Departure Airport: </label>
+            <input type="text" name="departure_airport" required />
+            <br />
+            <br />
+            <label for="name"> Departure Date: </label>
+            <input type="date" name="departure_date" required />
+            <label for="name"> &ensp; Departure Time: </label>
+            <input type="time" name="departure_time" required />
+            <br />
+            <br />
+            <label for="name"> Arrival Airport: </label>
+            <input type="text" name="arrival_airport" required />
+            <br />
+            <br />
+            <label for="name"> Arrival Date: </label>
+            <input type="date" name="arrival_date" required />
+            <label for="name"> &ensp; Arrival Time: </label>
+            <input type="time" name="arrival_time" required />
+            <br />
+            <br />
+            <label for="name"> Price ($): </label>
+            <input type="text" name="base_price" required />
+            <br />
+            <br />
+            <label for="name"> Airplane ID: </label>
+            <input type="text" name="airplane_ID" required />
+            <br />
+            <br />
+            <input type="submit" name="newFlight" value="Add Flight">
+        </form>
+    </div>
+</body>
+{% endblock %}

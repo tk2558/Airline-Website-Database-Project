@@ -1,0 +1,23 @@
+{% extends "customer_base.html" %}
+{% block title %} Customer {% endblock %}
+{% block content %}
+
+<body>
+	<br />
+	<h1>Welcome, {{name}}!</h1>
+	<br />
+	<img src="/static/profile.png" style="float:left" />
+	<h4> &ensp; Name: {{name}}</h4>
+	<br />
+	<h4> &ensp; Email: {{email}}</h4>
+	<br />
+	<h4> &ensp; Date of Birth: {{DoB}}</h4>
+	<br />
+	<h4> &ensp; Phone Number: {{phoneNum}}</h4>
+	<br />
+	<h4> &ensp; Address: {{buildNum}} {{street}} {{city}}, {{state}}</h4>
+	<br />
+	<h4> &ensp; Passport Country: {{pp_country}}</h4>
+	<br />
+</body>
+{% endblock %}

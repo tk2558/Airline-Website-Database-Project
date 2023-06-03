@@ -1,0 +1,40 @@
+{% extends "staff_base.html" %}
+{% block title %} Change Status {% endblock %}
+{% block content %}
+
+<body>
+	<br />
+	<h1> Update Flight Status</h1>
+	<div>
+		<form method="post">
+			<br />
+			<label for="name"> Flight Number: </label>
+			<input type="text" name="flight_number" required" />
+			<br />
+			<br />
+			<label for="name"> Departure Airport: </label>
+			<input type="text" name="departure_airport" required />
+			<br />
+			<br />
+			<label for="name"> Departure Date: </label>
+			<input type="date" name="departure_date" required />
+			<br />
+			<br />
+			<label for="name"> Departure Time: </label>
+			<input type="time" name="departure_time" required />
+			<br />
+			<br />
+			<label for="name"> Update Status: </label>
+			<br />
+			&ensp;
+			<input type="radio" name="status" value="On time"> On Time
+			<br />
+			&ensp;
+			<input type="radio" name="status" value="Delayed"> Delayed
+			<br />
+			<br />
+			<input type="submit" value="Update">
+		</form>
+	</div>
+</body>
+{% endblock %}
